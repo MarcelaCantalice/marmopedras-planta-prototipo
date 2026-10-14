@@ -1,0 +1,225 @@
+
+@import "tailwindcss";
+
+:root {
+  --vinho: #64283c;
+  --vinho-escuro: #421a2a;
+  --champagne: #c9aa78;
+  --fundo: #f7f4f0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: #33262b;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.pagina {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.subtitulo {
+  color: var(--vinho);
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+h1 {
+  margin: 10px 0;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.cabecalho p {
+  color: #82767a;
+}
+
+.etiqueta {
+  border: 1px solid #dfd3d5;
+  border-radius: 30px;
+  padding: 10px 16px;
+  font-size: 12px;
+  color: var(--vinho);
+}
+
+.painel {
+  background: white;
+  border-radius: 18px;
+  border: 1px solid #eae2df;
+  padding: 25px;
+  box-shadow: 0 8px 35px #421a2a0a;
+}
+
+.barra {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.depositos,
+.acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+button {
+  border: 1px solid #ddd4d5;
+  background: white;
+  border-radius: 8px;
+  padding: 10px 15px;
+  cursor: pointer;
+  color: var(--vinho);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+button:hover:not(:disabled) {
+  background: #f5edf0;
+}
+
+button.ativo,
+button.salvar {
+  color: white;
+  background: var(--vinho);
+  border-color: var(--vinho);
+}
+
+button.ativo:hover,
+button.salvar:hover {
+  background: var(--vinho-escuro);
+}
+
+button.excluir {
+  color: #a33e4b;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.planta-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.planta {
+  position: relative;
+  width: 100%;
+  min-width: 650px;
+  height: 490px;
+  background-color: #f8f5ef;
+  background-image:
+    linear-gradient(#dcd2c750 1px, transparent 1px),
+    linear-gradient(90deg, #dcd2c750 1px, transparent 1px);
+  background-size: 25px 25px;
+  border: 3px solid #a48b79;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.nome-deposito {
+  position: absolute;
+  right: 15px;
+  bottom: 12px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #ad9f93;
+  pointer-events: none;
+}
+
+.cavalete {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #b9a182;
+  border: 2px solid #8f775e;
+  color: #3c3027;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+
+.cavalete.horizontal {
+  width: 100px;
+  height: 36px;
+}
+
+.cavalete.vertical {
+  width: 36px;
+  height: 100px;
+}
+
+.cavalete.selecionado {
+  background: var(--vinho);
+  border-color: var(--vinho-escuro);
+  color: white;
+  outline: 3px solid var(--champagne);
+  z-index: 2;
+}
+
+.cavalete:active {
+  cursor: grabbing;
+}
+
+.rodape {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+  color: #8a7d7d;
+  font-size: 12px;
+}
+
+.mensagem {
+  margin-top: 20px;
+  color: #356a47;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .pagina {
+    padding: 15px;
+  }
+
+  .cabecalho {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+
+  .painel {
+    padding: 15px;
+  }
+
+  .acoes button {
+    flex-grow: 1;
+  }
+}
