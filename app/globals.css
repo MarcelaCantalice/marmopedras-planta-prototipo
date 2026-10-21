@@ -1,4 +1,3 @@
-
 @import "tailwindcss";
 
 :root {
@@ -22,7 +21,7 @@ body {
 .pagina {
   max-width: 1500px;
   margin: 0 auto;
-  padding: 40px;
+  padding: 40px 40px 60px;
 }
 
 .cabecalho {
@@ -71,7 +70,7 @@ h1 {
   justify-content: space-between;
   gap: 15px;
   flex-wrap: wrap;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .depositos,
@@ -116,6 +115,75 @@ button:disabled {
   cursor: not-allowed;
   opacity: 0.4;
 }
+
+/* ================= SELETOR DE TAMANHO INTEGRADO ================= */
+
+.seletor-tamanho-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+  background: #fcfbfa;
+  border: 1px solid #eae2df;
+  border-radius: 12px;
+  padding: 14px 20px;
+  margin-bottom: 20px;
+}
+
+.seletor-tamanho-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--vinho);
+  letter-spacing: 1px;
+}
+
+.seletor-tamanho-info svg {
+  color: var(--vinho);
+  flex-shrink: 0;
+}
+
+.seletor-tamanho-info strong {
+  color: var(--vinho-escuro);
+  background: #f2ece6;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+}
+
+.seletor-tamanho-opcoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.seletor-tamanho-opcoes .chip {
+  border: 1px solid #ddd4d5;
+  background: white;
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: var(--vinho);
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.seletor-tamanho-opcoes .chip:hover:not(:disabled) {
+  background: #f5edf0;
+  border-color: var(--vinho);
+}
+
+.seletor-tamanho-opcoes .chip.ativo {
+  color: white;
+  background: var(--vinho);
+  border-color: var(--vinho);
+}
+
+/* ================= PLANTA DO DEPÓSITO ================= */
 
 .planta-wrapper {
   width: 100%;
@@ -185,6 +253,18 @@ button:disabled {
   cursor: grabbing;
 }
 
+.cavalete.com-nota::after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--champagne);
+  border: 2px solid white;
+}
+
 .rodape {
   display: flex;
   justify-content: space-between;
@@ -201,9 +281,99 @@ button:disabled {
   font-weight: 600;
 }
 
+/* ================= MENU DE ANOTAÇÕES ================= */
+
+.menu-fundo {
+  padding: 20px;
+  background: #2a101b99;
+  backdrop-filter: blur(3px);
+}
+
+.menu-cavalete {
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow: auto;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 25px 70px #00000066;
+  border-bottom: 4px solid var(--champagne);
+}
+
+.menu-cavalete-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 20px 22px;
+  color: white;
+  background: linear-gradient(145deg, var(--vinho) 0%, var(--vinho-escuro) 100%);
+}
+
+.menu-etiqueta {
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: bold;
+  color: var(--champagne);
+}
+
+.menu-cavalete-topo h2 {
+  margin: 6px 0 0;
+  font-size: 24px;
+}
+
+.menu-cavalete-topo h2 small {
+  font-size: 13px;
+  font-weight: normal;
+  opacity: 0.75;
+}
+
+.menu-fechar {
+  color: white;
+  background: #ffffff1a;
+  border: 1px solid #ffffff33;
+  border-radius: 50%;
+  padding: 6px 11px;
+}
+
+.menu-fechar:hover:not(:disabled) {
+  background: #ffffff33;
+}
+
+.menu-corpo {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.menu-corpo textarea {
+  width: 100%;
+  resize: vertical;
+  border: 1px solid #ddd4d5;
+  border-radius: 10px;
+  padding: 12px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #33262b;
+  background: #fbf9f7;
+}
+
+.menu-corpo textarea:focus {
+  outline: 2px solid var(--champagne);
+  border-color: var(--champagne);
+  background: white;
+}
+
+.menu-cavalete-acoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
 @media (max-width: 768px) {
   .pagina {
-    padding: 15px;
+    padding: 15px 15px 30px;
   }
 
   .cabecalho {
